@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 //Get
 Route::get('/tipos', [TipoController::class, 'index'])  ->name('tipos.index');
