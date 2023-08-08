@@ -1,20 +1,12 @@
-@extends ('index')
-@section('contend')
+@extends('index')
+@section('content')
 <div>
     <div>
-        <H1>Novo Tipo</H1>
+        <h1>Lista de Tipos</h1>
     </div>
     <div>
-        <form action="" method="">
-            <div class="mb-3">
-                <label for="descricao" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="descricao" placeholder="Exemplo: Cancelado" name="descricao">
-            </div>
-            <div class="btn-group">
-                <button type="submit" class="btn btn-success">Salvar</button>
-                <button type="reset" class="btn btn-danger">Limpar</button>
-            </div>
-        </form>
+        <a href=" {{ route('tipos.create') }}" 
+        class="btn btn-primary" role="button">Novo</a>
     </div>
 </div>
 @endsection
