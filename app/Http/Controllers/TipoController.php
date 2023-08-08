@@ -29,7 +29,7 @@ class TipoController extends Controller
      */
     public function create()
     {
-        //
+       return view('tipos.create');
     }
 
     /**
