@@ -26,7 +26,11 @@
                         <td> {{$t->descricao}} </td>
                         <td> {{$t->created_at}} </td>
                         <td> {{$t->updated_at}} </td>
-                        <td>Opções </td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="" role="button" class="btn btn-primary">Editar</a>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
