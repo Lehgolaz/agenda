@@ -19,7 +19,7 @@ class TipoController extends Controller
         //$tipos = Tipo::paginate(50)     
         //Retornar uma view
         //quando eu quero executar uma pagina direto
-        return view('tipos.index',compact([$tipos]));
+        return view('tipos.index',compact(['tipos']));
        }
 
     /**
@@ -40,7 +40,13 @@ class TipoController extends Controller
      */
     public function store(StoreTipoRequest $request)
     {
-        //
+       $data = $request->all();
+       //dd($data):
+
+       $tipo = Tipo::create($data);
+
+       //return view('tipos.show',compact(['tipos]));
+       return redirect()->route('tipos.index');
     }
 
     /**

@@ -9,5 +9,5 @@ class Tipo extends Model
 {
     use HasFactory;
 
-    protected $filelable = ['descrição'];
+    protected $fillable = ['descricao'];
 }
