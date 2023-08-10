@@ -28,7 +28,8 @@
                         <td> {{$t->updated_at}} </td>
                         <td>
                             <div class="btn-group">
-                                <a href="" role="button" class="btn btn-primary">Editar</a>
+                            <a href="{{ route('tipos.edit',['tipo' => $t] )}}" role='button' class="btn btn-primary"><i class="bi bi-pencil"></i> Editar</a>  
+                            <a href="{{ route('tipos.show',['tipo' => $t] )}}" role='button' class="btn btn-warning"><i class="bi bi-card-checklist"></i> Show</a> 
                             </div>
                         </td>
                     </tr>
