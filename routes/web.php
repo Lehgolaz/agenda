@@ -25,22 +25,18 @@ Route::get('/', function () {
 })->name('home');
 
 //Get
-Route::get('/tipos', [TipoController::class, 'index'])
-    ->name('tipos.index');
+Route::get('/tipos', [TipoController::class, 'index'])->name('tipos.index');
 
-Route::get('/tipos/create', [TipoController::class, 'create'])
-    ->name('tipos.create');
+Route::get('/tipos/create', [TipoController::class, 'create'])->name('tipos.create');
 
-Route::get('/tipos/edit/{tipo}', [TipoController::class, 'edit'])
-    ->name('tipos.edit');
+Route::get('/tipos/edit/{tipo}', [TipoController::class, 'edit'])->name('tipos.edit');
 
-Route::get('/tipos/show/{tipo}', [TipoController::class, 'show'])
-    ->name('tipos.show');
-//Post
+Route::get('/tipos/show/{tipo}', [TipoController::class, 'show'])->name('tipos.show');
+
 Route::post('/tipos', [TipoController::class, 'store'])->name('tipos.store');
-//Put
-Route::put('/tipos/{tipo}', 
-[TipoController::class, 'store'])->name('tipos.store');
-//Delete
 
-//Route::resources('/tipos',TipoController::class);
+Route::put('/tipos/{tipo}', [TipoController::class, 'store'])->name('tipos.store');
+
+Route::put('/tipos/{tipo}', [TipoController::class, 'upadate'])->name('tipos.update');
+
+Route::delete('/tipos/{tipo}', [TipoController::class, 'destroy'])->name('tipos.destroy');
