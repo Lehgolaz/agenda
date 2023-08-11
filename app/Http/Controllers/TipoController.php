@@ -29,7 +29,8 @@ class TipoController extends Controller
      */
     public function create()
     {
-       return view('tipos.create');
+        //abrir pagina onde voce vai criar
+        return view('tipos.create');
     }
 
     /**
@@ -40,13 +41,16 @@ class TipoController extends Controller
      */
     public function store(StoreTipoRequest $request)
     {
-       $data = $request->all();
-       //dd($data):
+        //pegar dados do request
+        $data = $request->all();
 
-       $tipo = Tipo::create($data);
+        // dd($data);
 
-       //return view('tipos.show',compact(['tipos]));
-       return redirect()->route('tipos.index');
+        $tipo = Tipo::create($data);
+
+        // return view('tipos.show',compact(['tipos']));
+        return redirect()->route('tipos.index');
+       
     }
 
     /**
@@ -57,7 +61,8 @@ class TipoController extends Controller
      */
     public function show(Tipo $tipo)
     {
-        //
+         //retornar view e passr o tipo
+         return view('tipos.show',compact(['tipo']));
     }
 
     /**
@@ -68,7 +73,8 @@ class TipoController extends Controller
      */
     public function edit(Tipo $tipo)
     {
-        //
+        //retornar view e passr o tipo
+        return view('tipos.edit',compact(['tipo']));
     }
 
     /**
@@ -80,7 +86,9 @@ class TipoController extends Controller
      */
     public function update(UpdateTipoRequest $request, Tipo $tipo)
     {
-        //
+        $data = $request->all();
+        $tipo->update($data);
+        return redirect()->route('tipo.index');
     }
 
     /**
