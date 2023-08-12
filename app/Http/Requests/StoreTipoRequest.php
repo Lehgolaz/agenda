@@ -21,7 +21,7 @@ class StoreTipoRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules() 
     {
         return [
             'descricao' => 'min: 2| max: 50| required | unique:tipos,descricao'
