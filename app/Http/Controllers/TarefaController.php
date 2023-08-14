@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tarefa;
-use App\Http\Requests\StoretarefaRequest;
-use App\Http\Requests\UpdatetarefaRequest;
+use App\Models\Tarefa;
+use App\Http\Requests\StoreTarefaRequest;
+use App\Http\Requests\UpdateTarefaRequest;
+use App\Models\Tipo;
 
 class TarefaController extends Controller
 {
@@ -15,7 +16,9 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        //
+       $tarefa = Tarefa::all();
+
+       return view('tarefas.index', compact(['tarefas']));
     }
 
     /**
@@ -25,62 +28,73 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        //
+       $tipos = Tipo::all();
+
+
+       return view('tarefas.cerate', compact(['tipos']));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoretarefaRequest  $request
+     * @param  \App\Http\Requests\StoreTarefaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoretarefaRequest $request)
+    public function store(StoreTarefaRequest $request)
     {
-        //
+        $data = $request->all();
+        $tarefa = Tarefa::create($data);
+        //dd($tarefa);
+        return redirect()->route('tarefas.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\tarefa  $tarefa
+     * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
     public function show(tarefa $tarefa)
     {
-        //
+        $tipo = Tipo::all();
+        return view('tarefas.show', compact(['tipos']));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\tarefa  $tarefa
+     * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
     public function edit(tarefa $tarefa)
     {
-        //
+        $tipo = Tipo::all();
+        return view('tarefas.edit', compact(['tipos']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatetarefaRequest  $request
-     * @param  \App\Models\tarefa  $tarefa
+     * @param  \App\Http\Requests\UpdateTarefaRequest  $request
+     * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetarefaRequest $request, tarefa $tarefa)
+    public function update(UpdateTarefaRequest $request, Tarefa $tarefa)
     {
-        //
+        $data = $request->all();
+        $tarefa->update($data);
+        return redirect()->route('tarefa.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\tarefa  $tarefa
+     * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
     public function destroy(tarefa $tarefa)
     {
-        //
+        $tarefa->delete();
+        return redirect()->route('tarefa.index');
     }
 }

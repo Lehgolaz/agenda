@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTarefaRequest extends FormRequest
+class UpdateTarefaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class StoreTarefaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
             'data' => 'date | required',
             'assunto' => 'min: 2 | max: 50 | required',
             'descricao' => 'min: 2 | max: 250 | required',
