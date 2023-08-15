@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\TipoController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,4 @@ Route::put('/tipos/{tipo}', [TipoController::class, 'update'])->name('tipos.upda
 
 Route::delete('/tipos/{tipo}', [TipoController::class, 'destroy'])->name('tipos.destroy');
 
-Route::resource('tarefas',TarefaContriller::class);
+Route::resource('tarefas',TarefaController::class);

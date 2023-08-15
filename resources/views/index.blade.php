@@ -17,8 +17,9 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
-        a{
-          margin-right: 5px;  
+
+        a {
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -39,13 +40,17 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{ route('tipos.index') }}">Tipo</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ route('tarefas.index') }}">Tarefas</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <main>
-        @yield('content')        
+        @yield('content')
     </main>
     <footer>
     </footer>
