@@ -17,7 +17,6 @@ class TarefaController extends Controller
     public function index()
     {
         $tarefas = Tarefa::all();
-        //dd($tarefas);
         // $tarefas = Tarefa::paginate(25);
         //return response->json(['data'=>$tarefas])
         return view('tarefas.index',compact(['tarefas']));
@@ -60,7 +59,7 @@ class TarefaController extends Controller
     {
         //$tarefa = Tarefa::find($id)
         $tipos = Tipo::all();
-        return view('tarefas.show',compact(['tipos']));
+        return view('tarefas.show',compact(['tipos','tarefa']));
     }
 
     /**
@@ -72,7 +71,7 @@ class TarefaController extends Controller
     public function edit(Tarefa $tarefa)
     {
         $tipos = Tipo::all();
-        return view('tarefas.edit',compact(['tipos']));
+        return view('tarefas.edit',compact(['tipos','tarefa']));
     }
 
     /**
