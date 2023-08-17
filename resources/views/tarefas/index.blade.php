@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Descrição</th>
+                    <th>Assunto</th>
                     <th>Criado em:</th>
                     <th>Atualizado em:</th>
                     <th>Opções</th>
@@ -23,7 +23,8 @@
                 @foreach($tarefas as $t)
                 <tr>
                     <td> {{$t->id}} </td>
-                    <td> {{$t->descricao}} </td>
+                    <td> {{$t->assunto}} </td>
+                    <td> {{$t->tipo->descricao}} </td>
                     <td> {{$t->created_at}} </td>
                     <td> {{$t->updated_at}} </td>
                     <td>

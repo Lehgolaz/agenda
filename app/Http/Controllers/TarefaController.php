@@ -16,9 +16,11 @@ class TarefaController extends Controller
      */
     public function index()
     {
-       $tarefas = Tarefa::all();
-
-       return view('tarefas.index', compact(['tarefas']));
+        $tarefas = Tarefa::all();
+        //dd($tarefas);
+        // $tarefas = Tarefa::paginate(25);
+        //return response->json(['data'=>$tarefas])
+        return view('tarefas.index',compact(['tarefas']));
     }
 
     /**
@@ -28,10 +30,10 @@ class TarefaController extends Controller
      */
     public function create()
     {
-       $tipos = Tipo::all();
+        //
+        $tipos = Tipo::all();
 
-
-       return view('tarefas.create',compact(['tipos']));
+        return view('tarefas.create',compact(['tipos']));
     }
 
     /**
@@ -44,7 +46,7 @@ class TarefaController extends Controller
     {
         $data = $request->all();
         $tarefa = Tarefa::create($data);
-        //dd($tarefa);
+        // dd($tarefa);
         return redirect()->route('tarefas.index');
     }
 
@@ -54,10 +56,11 @@ class TarefaController extends Controller
      * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function show(tarefa $tarefa)
+    public function show(Tarefa $tarefa)
     {
-        $tipo = Tipo::all();
-        return view('tarefas.show', compact(['tipos']));
+        //$tarefa = Tarefa::find($id)
+        $tipos = Tipo::all();
+        return view('tarefas.show',compact(['tipos']));
     }
 
     /**
@@ -66,10 +69,10 @@ class TarefaController extends Controller
      * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function edit(tarefa $tarefa)
+    public function edit(Tarefa $tarefa)
     {
-        $tipo = Tipo::all();
-        return view('tarefas.edit', compact(['tipos']));
+        $tipos = Tipo::all();
+        return view('tarefas.edit',compact(['tipos']));
     }
 
     /**
@@ -83,7 +86,7 @@ class TarefaController extends Controller
     {
         $data = $request->all();
         $tarefa->update($data);
-        return redirect()->route('tarefa.index');
+        return redirect()->route('tarefas.index');
     }
 
     /**
@@ -92,9 +95,9 @@ class TarefaController extends Controller
      * @param  \App\Models\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tarefa $tarefa)
+    public function destroy(Tarefa $tarefa)
     {
         $tarefa->delete();
-        return redirect()->route('tarefa.index');
+        return redirect()->route('tarefas.index');
     }
 }
